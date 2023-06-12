@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "model.h"
-#include "opti.h"
+#include "cibles.h"
 
 void init_cibles(Model *m, Cible *cibles)
 {
@@ -25,3 +25,4 @@ void init_cibles(Model *m, Cible *cibles)
     }
         
 }
+
