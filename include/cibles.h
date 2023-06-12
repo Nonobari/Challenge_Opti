@@ -13,5 +13,6 @@ typedef struct {
 
 
 void init_cibles(Model *m, Cible *cibles);
+bool cibles_toutes_couvertes(Model *m, Cible *cibles);
 
 #endif

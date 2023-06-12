@@ -8,7 +8,6 @@
 void init_cibles(Model *m, Cible *cibles)
 {
     //Initialiser toutes les cibles à « non couverte »
-    cibles = malloc(m->n_cibles * sizeof(Cible));
     int n = 0;
     for (int i = 0; i < m->n_lignes; i++)
     {   
@@ -26,3 +25,16 @@ void init_cibles(Model *m, Cible *cibles)
         
 }
 
+
+bool cibles_toutes_couvertes(Model *m, Cible *cibles)
+/*Teste si toutes les civles sont couvertes*/
+{
+    for (int i = 0 ; i < m->n_cibles ; i++)
+    {
+        if (cibles[i].couvert == false)
+        {
+            return false;
+        }
+    }
+    return true;
+}

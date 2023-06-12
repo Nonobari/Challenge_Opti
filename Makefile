@@ -11,7 +11,7 @@ SRCS = $(wildcard $(LIBS_DIR)/*.c)
 OBJS = $(patsubst $(LIBS_DIR)/%.c, $(LIBS_DIR)/%.o, $(SRCS))
 
 # Règle par défaut
-all: main
+all: main script
 
 # Règle pour la cible principale
 main: main.o $(OBJS)
@@ -25,6 +25,9 @@ main.o: main.c
 $(LIBS_DIR)/%.o: $(LIBS_DIR)/%.c $(INCLUDE_DIR)/%.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
+script: script.o
+	gcc -o script script.o
+
 # Nettoyage
 clean:
-	rm -f main $(LIBS_DIR)/*.o *.o
+	rm -f main script $(LIBS_DIR)/*.o *.o
