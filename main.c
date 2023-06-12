@@ -81,6 +81,11 @@ int main(int argc, char *argv[]) {
                         cibles[k].couvert = 1;
                         //on sélectionne le meilleur gardien
                         tab_gardiens[i].used = 1;
+
+                        // on recalcule les cibles couvertes pour optimiser le nombre de gardiens
+                        //on met à jour le tableau des gardiens
+                        n_cases = cases_couvertes(&m, tab_gardiens[i].x, tab_gardiens[i].y, tab_points_couverts);
+
                     }
                     //printf("La cible x:%d y:%d est couverte\n", cibles[k].x, cibles[k].y);
                 }
