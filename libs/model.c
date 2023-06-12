@@ -59,4 +59,6 @@ void printModel(Model *m)
         }
         printf("\n");
     }
+    printf("Nombre de cibles : %d\n", m->n_cibles);
+    printf("Nombre d'obstacles : %d\n", m->n_obstacles);
 }

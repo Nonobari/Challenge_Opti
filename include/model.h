@@ -1,8 +1,6 @@
-typedef struct {
-    int x;
-    int y;
-    char type;
-} Point;
+#ifndef MODEL_H
+#define MODEL_H
+
 
 typedef struct {
     char **tab;
@@ -16,3 +14,5 @@ typedef struct {
 
 void load_model(Model *m, char* filename);
 void printModel(Model *m);
+
+#endif
