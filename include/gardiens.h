@@ -33,4 +33,6 @@ void afficher_tab(Gardien *tab_guard, int n);
 void swap(Gardien *a, int i, int j);
 void reverse_tab(Gardien *tab_guard, int n);
 void print_guardiens_choisis(Gardien *tab_guard, int n);
+void add_coordonnes_cibles(Model *m,Cible *cibles, Gardien *gardien);
+void add_cibles(Model *m,Cible *cibles, Gardien **gardiens);
 #endif

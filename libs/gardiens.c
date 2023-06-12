@@ -223,25 +223,35 @@ void add_coordonnes_cibles(Model *m,Cible *cibles, Gardien *gardien)
 {
     Point *tab_points = malloc(m->n_lignes*m->n_colonnes*sizeof(Point));
     int n_cases = cases_couvertes(m,gardien->x,gardien->y,tab_points);
-    //(Model *m,int i, int j, Point *tab_points) 
-    int n_cible_couverte = 0;
-    int x,y;
+    
+    int nbr_cible_vu_gardien = gardien->nb_couvert;
+    int k=0;
+    gardien->cible_vues = malloc(nbr_cible_vu_gardien*sizeof(Point));
     for (int i = 0; i<m->n_cibles; i++)
     {
-        x = cibles[i].x;
-        y = cibles[i].y;
+        Point adresse;
+
+        adresse.x = cibles[i].x;
+        adresse.y = cibles[i].y;
         //printf("La cible n %d est en %d %d\n", i, x, y);
 
         for (int n = 0; n < n_cases; n ++)
         {
-            if (tab_points[n].x == x && tab_points[n].y == y && cibles[i].couvert == false)
+            if (tab_points[n].x == adresse.x && tab_points[n].y == adresse.y)
             {
                 //la cible est couverte
                 //cibles[i].couvert = 1;
-                n_cible_couverte ++;
+                gardien->cible_vues[k] = adresse;
+                k++;
             }
         }
 
     }
-    return n_cible_couverte;
+}
+
+void add_cibles(Model *m,Cible *cibles, Gardien **gardiens)
+{
+    for (int i = 0; i < (m->n_lignes*m->n_colonnes); i++) {
+        add_coordonnes_cibles(m,cibles,gardiens[i]);
+    }
 }
